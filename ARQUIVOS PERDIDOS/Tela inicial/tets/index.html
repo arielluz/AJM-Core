@@ -193,9 +193,8 @@ body{margin:0; background:var(--void); min-height:100vh; overflow:hidden; font-f
   <button class="intro-skip" id="introSkip">pular intro ›</button>
 </div>
 
-<!-- ===================== ARQUIVO ===================== -->
 <div id="mainApp">
-  <!-- 👇 troque este bloco pelo HTML do seu site (sidebar, dashboard, etc) -->
+
   <div class="placeholder-archive">
     <h1>ARQUIVO ABERTO</h1>
     <p>// coloque aqui o conteúdo do Sistema VIGÍLIA</p>
@@ -263,7 +262,6 @@ introChoice.addEventListener('click', (e)=>{
 
 introCta.addEventListener('click', enterArchive);
 document.getElementById('introSkip').addEventListener('click', enterArchive);
-
 function enterArchive(){
   introScreen.classList.add('fade-out');
   setTimeout(()=>{
@@ -271,8 +269,6 @@ function enterArchive(){
     mainApp.classList.add('visible');
   }, 800);
 }
-
-/* inicia a sequência */
 typeLines(bootLines, introLog, showNarrative);
 </script>
 </body>
