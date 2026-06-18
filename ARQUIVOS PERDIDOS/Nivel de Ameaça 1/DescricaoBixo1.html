@@ -1,35 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Faceless Man</title>
-    <link rel="stylesheet" href="app.js">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="app.js"></script>
+<title>The Faceless Man</title>
 
-    <style>
-        body{
-            background-color: darkslategrey;
-        }
-        #caixa{
-            background-color: cornflowerblue;
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            position: absolute;
-            top: 80px;
-            left: 300px;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    </style>
+<style>
+body{
+    background-color: darkslategrey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+.card{
+    width: 24rem;
+    text-align: center;
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #1f2d2d;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+
+
+.card-img-top{
+    height: 320px;
+    object-fit: cover;
+}
+
+.card:hover .card-img-top{
+    transform: scale(1.05);
+}
+
+.card-body{
+    padding: 1.5rem;
+}
+
+.card-text{
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e6e6e6;
+}
+
+.card strong{
+    color: #7fb3ff;
+}
+</style>
+</head>
+
 <body>
 
 <section id="descricao-anomalia">
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="card" style="width: 22rem; text-align: center;">
+        <div class="card">
             <img src="download (1).jpg" class="card-img-top" alt="The Faceless Man">
+
             <div class="card-body">
-            <p class="card-text">Conhecido como <strong>SCP-582</strong>,<br> <strong>The Faceless Man</strong> é uma entidade perigosa, ataca através de guerra psicológica, perseguição e corrupção mental, usando táticas que levam suas vítimas à loucura antes do contato físico</strong></p>
+                <p class="card-text">
+                    Conhecido como <strong>SCP-582</strong>,
+                    <strong>The Faceless Man</strong> é uma entidade perigosa.
+                    Atua através de guerra psicológica, perseguição e corrupção
+                    mental, utilizando táticas que conduzem suas vítimas à
+                    loucura antes mesmo de qualquer contato físico.
+                </p>
             </div>
         </div>
     </div>
@@ -37,7 +77,7 @@
 
 <div id="caixa"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
