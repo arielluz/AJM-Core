@@ -15,8 +15,6 @@ body{
   color:#dcd7be;
   font-family:'EB Garamond', serif;
 }
-
-/* fundo/atmosfera */
 .scanlines{
   position:fixed; inset:0; pointer-events:none; z-index:999;
   background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
@@ -29,7 +27,7 @@ body{
 
 .app{ display:grid; grid-template-columns:260px 1fr; min-height:100vh; }
 
-/* SIDEBAR */
+
 .sidebar{
   background:linear-gradient(180deg, var(--panel), #101108);
   border-right:1px solid var(--line);
@@ -48,10 +46,14 @@ body{
   color:var(--ink-dim); font-size:14.5px; text-align:left;
   padding:10px 12px; cursor:pointer; border-radius:2px;
 }
-.tab:hover{ background:rgba(232,225,199,0.05); color:var(--paper); }
+.tab {
+  padding: 10px 15px;
+  border: none;
+  background: rgba(201,151,74,0.3);
+}
+
 .tab.active{ background:rgba(201,151,74,0.1); border-color:rgba(201,151,74,0.3); color:var(--amber); }
 
-/* TOPBAR + BUSCA */
 .content{ display:flex; flex-direction:column; }
 .topbar{
   display:flex; align-items:center; gap:14px;
