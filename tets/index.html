@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIGÍLIA — Acesso ao Terminal</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0a0b08;
+  --paper:#e8e1c7;
+  --ink-dim:#8d8a76;
+  --blood:#b23a3a;
+  --amber:#c9974a;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--void); min-height:100vh; overflow:hidden; font-family:'EB Garamond', serif;}
+
+/* ===================== TELA DE INTRODUÇÃO ===================== */
+.intro{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(ellipse at center, #14150f 0%, #060603 100%);
+  z-index:10;
+  transition:opacity 0.8s ease;
+}
+.intro.fade-out{ opacity:0; pointer-events:none; }
+.intro::before{ /* scanlines sutis */
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
+}
+.intro.flicker::after{
+  content:''; position:absolute; inset:0; background:#000; opacity:0;
+  animation:powerFlicker 1.4s steps(2,end) 1;
+}
+@keyframes powerFlicker{
+  0%{opacity:0;} 8%{opacity:0.85;} 14%{opacity:0;} 30%{opacity:0.5;} 34%{opacity:0;} 100%{opacity:0;}
+}
+
+.intro-box{
+  width:min(560px, 88vw);
+  text-align:left;
+}
+
+.intro-candle{
+  font-size:34px;
+  text-align:center;
+  margin-bottom:18px;
+  filter:drop-shadow(0 0 10px rgba(201,151,74,0.55));
+  animation:candleFlicker 2.4s infinite ease-in-out;
+}
+@keyframes candleFlicker{
+  0%,100%{opacity:1;} 48%{opacity:1;} 50%{opacity:0.55;} 52%{opacity:1;} 80%{opacity:0.8;}
+}
+
+.intro-log{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  color:#5c7a44;
+  line-height:1.9;
+  min-height:160px;
+}
+.intro-log .line{ display:block; opacity:0; }
+.intro-log .line.show{ opacity:1; }
+.intro-log .err{ color:var(--blood); }
+.intro-log .cursor{ display:inline-block; width:7px; background:#5c7a44; animation:blink 0.9s steps(1) infinite; margin-left:2px; }
+@keyframes blink{ 50%{opacity:0;} }
+
+.intro-narrative{
+  display:none;
+  font-size:18px;
+  color:var(--paper);
+  line-height:1.7;
+  margin-top:8px;
+  font-style:italic;
+}
+.intro-narrative p{ opacity:0; animation:lineIn 0.9s ease forwards; }
+
+.intro-choice{
+  display:none;
+  margin-top:26px;
+  flex-direction:column;
+  gap:10px;
+}
+.intro-choice p{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.5px;
+  color:var(--ink-dim);
+  text-transform:uppercase;
+  margin:0 0 6px;
+}
+.choice-btn{
+  display:flex;
+  background:rgba(232,225,199,0.03);
+  border:1px solid #33342a;
+  color:var(--paper);
+  font-family:'EB Garamond', serif;
+  font-size:15px;
+  text-align:left;
+  padding:12px 16px;
+  border-radius:2px;
+  cursor:pointer;
+  transition:border-color 0.15s, background 0.15s;
+}
+.choice-btn:hover{ border-color:var(--amber); background:rgba(201,151,74,0.06); }
+.choice-btn:focus-visible{ outline:2px solid var(--amber); outline-offset:1px; }
+
+.intro-response{
+  display:none;
+  margin-top:16px;
+  font-size:15px;
+  color:var(--ink-dim);
+  font-style:italic;
+}
+
+.intro-cta{
+  display:none;
+  margin-top:30px;
+  background:var(--blood);
+  color:var(--paper);
+  border:1px solid #8a2c2c;
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  letter-spacing:1px;
+  padding:13px 22px;
+  border-radius:2px;
+  cursor:pointer;
+  width:100%;
+}
+.intro-cta:hover{ background:#8a2c2c; }
+
+.intro-skip{
+  position:fixed; bottom:22px; right:26px;
+  background:none; border:none;
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px; letter-spacing:0.5px;
+  color:var(--ink-dim);
+  cursor:pointer;
+  opacity:0.6;
+}
+.intro-skip:hover{ opacity:1; color:var(--paper); }
+
+@keyframes lineIn{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){
+  .intro-candle, .cursor{ animation:none; }
+  .intro-narrative p{ animation:none; opacity:1; }
+}
+
+/* ===================== ARQUIVO (SEU SITE ENTRA AQUI) ===================== */
+#mainApp{
+  display:none;
+  min-height:100vh;
+}
+#mainApp.visible{ display:block; }
+
+/* placeholder só pra essa demo funcionar sozinha — troque pelo conteúdo real do seu site */
+.placeholder-archive{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:10px;
+  color:#e8e1c7; font-family:'Special Elite', monospace;
+  text-align:center; padding:40px;
+}
+.placeholder-archive p{ color:#8d8a76; font-family:'JetBrains Mono', monospace; font-size:12px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== TELA DE INTRODUÇÃO ===================== -->
+<div class="intro flicker" id="introScreen">
+  <div class="intro-box">
+    <div class="intro-candle">🕯</div>
+
+    <div class="intro-log" id="introLog"></div>
+
+    <div class="intro-narrative" id="introNarrative">
+      <p>Você assume o terminal de campo deixado pelo último agente.</p>
+      <p>As luzes oscilam. Parte da memória do sistema foi apagada — e não foi acidente.</p>
+    </div>
+
+    <div class="intro-choice" id="introChoice">
+      <p>O que você faz primeiro?</p>
+      <button class="choice-btn" data-choice="registros">Acessar os registros que restaram</button>
+      <button class="choice-btn" data-choice="pistas">Procurar pistas sobre o que aconteceu</button>
+    </div>
+
+    <div class="intro-response" id="introResponse"></div>
+
+    <button class="intro-cta" id="introCta">ACESSAR ARQUIVO →</button>
+  </div>
+
+  <button class="intro-skip" id="introSkip">pular intro ›</button>
+</div>
+
+<!-- ===================== ARQUIVO ===================== -->
+<div id="mainApp">
+  <!-- 👇 troque este bloco pelo HTML do seu site (sidebar, dashboard, etc) -->
+  <div class="placeholder-archive">
+    <h1>ARQUIVO ABERTO</h1>
+    <p>// coloque aqui o conteúdo do Sistema VIGÍLIA</p>
+  </div>
+</div>
+
+<script>
+const bootLines = [
+  { text:'&gt; INICIALIZANDO SISTEMA VIGÍLIA...', delay:500 },
+  { text:'&gt; VERIFICANDO INTEGRIDADE DOS ARQUIVOS...', delay:700 },
+  { text:'&gt; ERRO: 41% DOS REGISTROS CORROMPIDOS', delay:600, err:true },
+  { text:'&gt; ÚLTIMO AGENTE CONECTADO: desconhecido', delay:700 },
+  { text:'&gt; recuperando sessão local...', delay:900 },
+];
+
+const introLog = document.getElementById('introLog');
+const introNarrative = document.getElementById('introNarrative');
+const introChoice = document.getElementById('introChoice');
+const introResponse = document.getElementById('introResponse');
+const introCta = document.getElementById('introCta');
+const introScreen = document.getElementById('introScreen');
+const mainApp = document.getElementById('mainApp');
+
+function typeLines(lines, container, onDone){
+  let i = 0;
+  function next(){
+    if(i >= lines.length){ onDone && onDone(); return; }
+    const { text, delay, err } = lines[i];
+    const span = document.createElement('span');
+    span.className = 'line' + (err ? ' err' : '');
+    span.innerHTML = text;
+    container.appendChild(span);
+    requestAnimationFrame(()=> span.classList.add('show'));
+    i++;
+    setTimeout(next, delay);
+  }
+  next();
+}
+
+function showNarrative(){
+  introNarrative.style.display = 'block';
+  const paras = introNarrative.querySelectorAll('p');
+  paras.forEach((p, idx)=> p.style.animationDelay = `${idx * 1.1}s`);
+  const totalDelay = paras.length * 1100 + 600;
+  setTimeout(showChoice, totalDelay);
+}
+
+function showChoice(){
+  introChoice.style.display = 'flex';
+}
+
+const responses = {
+  registros: 'Os arquivos restantes carregam — incompletos, mas suficientes para começar.',
+  pistas: 'Você não encontra respostas. Só um registro de erro, repetido várias vezes, sem explicação.',
+};
+
+introChoice.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.choice-btn');
+  if(!btn) return;
+  introChoice.style.display = 'none';
+  introResponse.textContent = responses[btn.dataset.choice];
+  introResponse.style.display = 'block';
+  setTimeout(()=>{ introCta.style.display = 'block'; }, 900);
+});
+
+introCta.addEventListener('click', enterArchive);
+document.getElementById('introSkip').addEventListener('click', enterArchive);
+
+function enterArchive(){
+  introScreen.classList.add('fade-out');
+  setTimeout(()=>{
+    introScreen.style.display = 'none';
+    mainApp.classList.add('visible');
+  }, 800);
+}
+
+/* inicia a sequência */
+typeLines(bootLines, introLog, showNarrative);
+</script>
+</body>
+</html>
