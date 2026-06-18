@@ -107,5 +107,5 @@
 
 
 
-links :
+links 
 Trello : https://trello.com/invite/b/6a332ccd34bfb181917023da/ATTI70bebad257bbf8b6cbfb1401af99f705601FA9F4/trabalho-senai
