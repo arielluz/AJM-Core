@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Introdução</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="intro" id="Introdução">
+        <div class="intro-box">
+            <div class="intro-candle"></div>
+
+            <div class="intro-log" id="introLog"></div>
+            <p>Você assume o termial de campo deixando pelo último agente.</p>
+            <p>As luzes oscilam. Parte de memória do sitema foi apagada... e não foi acidente</p>
+        </div>
+
+        <div class="intro-escolha" id="introEscolha">
+            <p>O que você faz primeiro?...</p>
+            <button class="escolha-btn" data-escolha="registro">Acessar os registros que restaram</button>
+            <button class="escolha-btn" data-escolha="pistas">Procurar pistas sobre o que acontece...</button>
+        </div>
+
+        <div class="intro-reação" id="introReação"></div>
+
+        <button class="intro-cta" id="introCta">ACESSAR AQUIVO</button>
+
+        <button class="intro-skip" id="introSkip">Pular Intro</button>
+    </div>
+
+    
+    <script src="script.js">
+
+        const bootLines = [
+            { Text: '&gt; INICIALIZANDO SISTEMA AJM core.....', Delay:500},
+            
+        ]
+    </script>
+</body>
+</html>
