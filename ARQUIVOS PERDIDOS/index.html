@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>ARQUIVOS PEDIDOS</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.js">
 </head>
 <body>
-        <a href="DescricaoBixo1.html">Anomalia 1</a>
+
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">🕯</span>
+      <div>
+        <h1>AJM core</h1>
+        <p>Arquivo AJM</p>
+      </div>
+    </div>
+    <nav class="folder-tabs">
+      <button id="VG" class="tab active">Visão Geral</button>
+      <button id="Criat" class="tab">Criaturas</button>
+      <button id="Agentes" class="tab">Agentes</button>
+      <button id="Ocorr" class="tab">Ocorrências</button>
+      <button id="Locais" class="tab">Locais</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <input class="search" placeholder="Buscar nos arquivos…">
+      <button class="btn-new">+ NOVO REGISTRO</button>
+    </header>
+  
+  </main>
+</div>
+
 </body>
 </html>
