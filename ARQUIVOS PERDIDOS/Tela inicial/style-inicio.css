@@ -2,7 +2,7 @@ body {
     background-color: #000;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
-        url("./Imagens/360_F_1225689447_X3Hn4vBJBNoYscsZZzaQwknv8ILc7BFF.jpg");
+        url("./360_F_1225689447_X3Hn4vBJBNoYscsZZzaQwknv8ILc7BFF.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
