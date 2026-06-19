@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<<<<<<< HEAD:ARQUIVOS PERDIDOS/index.html
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond&family=JetBrains+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="app.js">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="app.js"></script>
+<title>Chucky</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background-color: darkslategrey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+.card{
+    width: 24rem;
+    text-align: center;
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #1f2d2d;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+
+
+.card-img-top{
+    height: 320px;
+    object-fit: cover;
+}
+
+.card:hover .card-img-top{
+    transform: scale(1.05);
+}
+
+.card-body{
+    padding: 1.5rem;
+}
+
+.card-text{
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e6e6e6;
+}
+
+.card strong{
+    color: #7fb3ff;
+}
+</style>
 </head>
+
 <body>
 
-<div class="scanlines"></div>
-<div class="vignette"></div>
+<section id="descricao-anomalia">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card">
+            <img src="./download(3).gif" class="card-img-top" alt="Chucky">
 
-<div class="app">
-  <aside class="sidebar">
-    <div class="brand">
-      <span class="brand-mark">🕯</span>
-      <div>
-        <h1>AJM core</h1>
-        <p>Arquivo AJM</p>
-      </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Conhecido como <strong>Boneco assasino</strong>,
+                    <strong>O Chucky</strong> é uma entidade perigosa.
+                    O boneco Chucky possui duas aparências principais ao longo da franquia cinematográfica: 
+                    a versão infantil inofensiva ("Good Guy") 
+                    e a versão aterrorizante com cicatrizes e feições humanas distorcidas
+            </div>
+        </div>
     </div>
-    <nav class="folder-tabs">
-      <button id="VG" class="tab active">Visão Geral</button>
-      <button id="Criat" class="tab">Criaturas</button>
-      <button id="Agentes" class="tab">Agentes</button>
-      <button id="Ocorr" class="tab">Ocorrências</button>
-      <button id="Locais" class="tab">Locais</button>
-    </nav>
-  </aside>
+</section>
 
-  <main class="content">
-    <header class="topbar">
-      <input class="search" placeholder="Buscar nos arquivos…">
-      <button class="btn-new">+ NOVO REGISTRO</button>
-    </header>
-  
-  </main>
-</div>
+<div id="caixa"></div>
 
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class= "inf">
-        <h1>Resenha</h1>
-    </div>
-    
->>>>>>> 09ead993165c32e5e0724222b6b01fa5cc3ba915:ARQUIVOS PERDIDOS/Tela inicial/Nivel de Ameaça 1/DescricaoBixo3.html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
