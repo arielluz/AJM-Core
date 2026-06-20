@@ -1,6 +1,4 @@
-setTimeout(() => {
-    window.location.href = "principal.html";
-}, 3000); 
+
 
 const botao = document.getElementById("btnEntidades");
 const menu = document.getElementById("menuEntidades");

@@ -68,6 +68,6 @@ function revelarBotao() {
     btn.classList.add("visivel");
 
     btn.addEventListener("click", () => {
-        window.location.href = "Arquivo-Perdido.html";
+        window.location.href = "informacao.html";
     });
 }
