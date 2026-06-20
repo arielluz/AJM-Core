@@ -1,45 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond&family=JetBrains+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AJM Core</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style-informacao.css">
+
 </head>
+
 <body>
 
 <div class="scanlines"></div>
-<div class="vignette"></div>
 
 <div class="app">
-  <aside class="sidebar">
-    <div class="brand">
-      <span class="brand-mark">🕯</span>
-      <div>
-        <h1>AJM core</h1>
-        <p>Arquivo AJM</p>
-      </div>
-    </div>
-    <nav class="folder-tabs">
-      <button class="tab active">Visão Geral</button>
-      <button class="tab" onclick="toggleCriaturas()">
-      </button>
-      <div class="criaturasMenu" id="criaturasMenu">
-        <a href="./Nivel de Ameaça 1/DescricaoBixo1.html"></a>
-        <a href="./Nivel de Ameaça 2/DescricaoBixo1.html"></a>
-        <a href="./Nivel de Ameaça 3/DescricaoBixo1.html"></a>
-      </div>
-    </nav>
-  </aside>
 
-  <main class="content">
-    <header class="topbar">
-      <input class="search" placeholder="Buscar nos arquivos…">
-      <button class="btn-new">+ NOVO REGISTRO</button>
-    </header>
-  
-    <h1>Olá</h1>
-  </main>
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <h1>AJM CORE</h1>
+
+            <p>Arquivo Paranormal</p>
+
+        </div>
+
+        <nav>
+
+            <button class="tab active">
+
+                📁 Visão Geral
+
+            </button>
+
+            <button class="tab" id="btnCriaturas">
+
+                📁 Criaturas
+
+            </button>
+
+            <div id="criaturasMenu">
+
+                <a href="./Nivel de Ameaça 1/DescricaoBixo1.html">
+
+                    SCP-582 | Nível 1
+
+                </a>
+
+                <a href="./Nivel de Ameaça 2/DescricaoBixo1.html">
+
+                    SCP-666 | Nível 2
+
+                </a>
+
+                <a href="./Nivel de Ameaça 3/DescricaoBixo1.html">
+
+                    SCP-001 | Nível 3
+
+                </a>
+
+            </div>
+
+            <button class="tab">
+
+                📁 Ocorrências
+
+            </button>
+
+            <button class="tab">
+
+                📁 Agentes
+
+            </button>
+
+            <button class="tab">
+
+                📁 Arquivos Corrompidos
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <main class="content">
+        <div class="status">
+
+            SISTEMA ONLINE
+
+        </div>
+
+        <h1 id="titulo">
+
+            AJM CORE
+
+        </h1>
+
+        <div class="terminal">
+
+            <p class="linha">
+
+                > Inicializando sistema...
+
+            </p>
+
+            <p class="linha">
+
+                > Verificando integridade dos arquivos...
+
+            </p>
+
+            <p class="linha">
+
+                > Integridade: 78%
+
+            </p>
+
+            <p class="linha">
+
+                > Anomalias catalogadas: 12
+
+            </p>
+
+            <p class="linha">
+
+                > Agentes ativos: 7
+
+            </p>
+
+            <p class="linha vermelho">
+
+                > 3 ANOMALIAS DE ALTO RISCO DETECTADAS
+
+            </p>
+
+        </div>
+
+    <div id="cardsCriaturas">
+
+      <div class="cardAmeaca" onclick="window.location.href='./Nivel de Ameaça 1/DescricaoBixo1.html'">
+
+          <h2>Nível de Ameaça 1</h2>
+
+            <p>
+              Entidades de baixo risco.
+              Possuem poucos registros de agressividade.
+            </p>
+
+      </div>
+
+    <div class="cardAmeaca" onclick="window.location.href='./Nivel de Ameaça 2/DescricaoBixo1.html'">
+
+        <h2>Nível de Ameaça 2</h2>
+
+        <p>
+            Entidades perigosas.
+            Requerem monitoramento constante.
+        </p>
+
+    </div>
+
+      <div class="cardAmeaca" onclick="window.location.href='./Nivel de Ameaça 3/DescricaoBixo1.html'">
+
+          <h2>Nível de Ameaça 3</h2>
+
+          <p>
+              Entidades extremamente perigosas.
+              Acesso restrito.
+          </p>
+
+      </div>
+
+    </div>
+
+    </main>
+
 </div>
-  <script src="script.js"></script>it
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
