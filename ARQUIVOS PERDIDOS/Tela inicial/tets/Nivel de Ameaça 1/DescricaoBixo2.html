@@ -90,125 +90,75 @@ body{
 }
 
 .painel-direito{
-
 width:50%;
-
 height:100vh;
-
 position:fixed;
-
 right:0;
-
 top:0;
-
 padding:50px;
-
 }
 
 #btnInfo{
-
-width:400px;
-
+width:490px;
 height:90px;
-
 font-size:25px;
-
 background:#24211d;
-
 color:#d4b06d;
-
 border:2px solid #3a342c;
-
 border-radius:20px;
 
 }
 
+#btnVoltar{
+position: fixed;
+bottom: 30px;
+left: 30px;
+width: 150px;
+height: 60px;
+background:#24211d;
+color:#d4b06d;
+border:2px solid #3a342c;
+border-radius: 15px;
+font-size: 25px;
+cursor: pointer;
+}
+
 #conteudo{
-
 margin-top:100px;
-
 }
 
 #conteudo h2{
-
 color:#b89a5e;
-
 }
 
 #conteudo p{
-
 font-size:20px;
-
 line-height:1.8;
-
 }
 
 #bugTela{
-
 display:none;
-
 position:fixed;
-
 width:100%;
-
 height:100vh;
-
 top:0;
-
 left:0;
-
 background:rgba(0,0,0,0.95);
-
 z-index:999;
-
 text-align:center;
-
 }
 
 #bugTela img{
-
-width:350px;
-
-margin-top:70px;
-
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    margin:0;
 }
 
 #bugTela h1{
-
-color:#b89a5e;
-
+color:red;
 margin-top:30px;
-
 font-size:60px;
-
-}
-
-.tremor{
-
-animation:tremor 0.15s infinite;
-
-}
-
-@keyframes tremor{
-
-0%{
-
-    transform:translate(2px,2px);
-
-}
-
-50%{
-
-    transform:translate(-2px,-2px);
-
-}
-
-100%{
-
-    transform:translate(2px,-2px);
-
-}
-
 }
 </style>
 </head>
@@ -223,7 +173,6 @@ animation:tremor 0.15s infinite;
                 <h2>SCP-582</h2>
     
                 <p><strong>Status:</strong> Pouco Ativo</p>
-                <p><strong>Ultimo Visto:</strong> 1 Mês</p>
                 <p><strong>Nível de ameaça:</strong> 1</p>
                 <p><strong>Origem:</strong> Desconhecida</p>
     
@@ -236,7 +185,7 @@ animation:tremor 0.15s infinite;
             </div>
     
             <div class="card">
-                <img src="Captura de tela 2026-06-22 210034.png" class="card-img-top" alt="The Faceless Man">
+                <img src="Manequim.png" class="card-img-top" alt="Homem dos Manequim">
     
                 <div class="card-body">
                     <h2>O Homem dos Manequim</h2>
@@ -255,34 +204,24 @@ animation:tremor 0.15s infinite;
 
     <div class="painel-direito">
 
-        <div id="conteudo">
-    
-            <button id="btnInfo">
-    
-                Veja os casos e avisos sobre a Entidade
-    
-            </button>
-    
-        </div>
+        <div id="conteudo"></div>
+
+        <button id="btnInfo">
+            Veja os casos e avisos sobre a Entidade
+        </button>
     
     </div>
     
     
     <div id="bugTela">
-    
-        <img src="Captura de tela 2026-06-22 210034.png">
-    
-        <h1>
-    
-            UÉ...
-    
-            <br>
-    
-            NÃO ERA PRA ISSO ACONTECER.
-    
-        </h1>
-    
+        <img src="Manequim.png">
+        <h1>Tente Denovo</h1>
     </div>
+
+    <button id="btnVoltar">
+        <strong>Voltar</strong>
+    </button>
+
   <script src="appB2.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 

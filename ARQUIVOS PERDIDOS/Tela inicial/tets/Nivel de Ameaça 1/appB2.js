@@ -1,88 +1,100 @@
 const btnInfo = document.querySelector("#btnInfo");
-
 const conteudo = document.querySelector("#conteudo");
-
 const bugTela = document.querySelector("#bugTela");
+const btnVoltar = document.querySelector("#btnVoltar");
 
 let etapa = 0;
+let tentativas = 0;
 
+// BOTÃO PRINCIPAL
 btnInfo.addEventListener("click", () => {
 
     etapa++;
 
-    if(etapa === 1){
+    if (etapa === 1) {
 
         conteudo.innerHTML = `
+            <h2>14/03/1997</h2>
 
-        <h2>📍 14/03/1997</h2>
+            <p>
+                Primeiro avistamento.
+                Três manequins foram encontrados
+                em posições diferentes.
+            </p>
 
-        <p>
-        Primeiro avistamento.
+            <hr>
 
-        Três manequins foram encontrados
-        em posições diferentes.
-        </p>
+            <h2>18/03/1997</h2>
 
-        <hr>
+            <p>
+                Um vigia relatou que os manequins
+                mudavam de posição quando ele piscava.
+            </p>
 
-        <h2>📍 18/03/1997</h2>
+            <hr>
 
-        <p>
-        Um vigia relatou que os manequins
-        mudavam de posição quando ele piscava.
-        </p>
+            <h2>22/03/1997</h2>
 
-        <hr>
-
-        <h2>📍 22/03/1997</h2>
-
-        <p>
-        A entidade foi catalogada.
-
-        Nenhum movimento foi registrado.
-        </p>
-
+            <p>
+                A entidade foi catalogada.
+                Nenhum movimento foi registrado.
+            </p>
         `;
 
         btnInfo.innerText = "Ver Avisos";
-
     }
 
-    else if(etapa === 2){
+    else if (etapa === 2) {
 
         bugTela.style.display = "block";
 
-        document.body.classList.add("tremor");
+        bugTela.innerHTML = `
+            <img src="Manequim.png" alt="Manequim">
+        `;
 
         setTimeout(() => {
 
             bugTela.style.display = "none";
 
-            document.body.classList.remove("tremor");
-
         }, 2000);
-
     }
 
-    else{
+    else {
 
         conteudo.innerHTML = `
+            <h2>⚠ AVISOS</h2>
 
-        <h2>⚠ AVISOS</h2>
+            <p>• Não permaneça sozinho.</p>
 
-        <p>• Não permaneça sozinho.</p>
+            <p>
+                • Caso encontre um manequim
+                em posição diferente,
+                abandone o local.
+            </p>
 
-        <p>• Caso encontre um manequim
-        em posição diferente,
-        abandone o local.</p>
+            <p>• Não toque na entidade.</p>
 
-        <p>• Não toque na entidade.</p>
-
-        <p>• Caso ouça passos,
-        não olhe para trás.</p>
-
+            <p>
+                • Caso ouça passos,
+                não olhe para trás.
+            </p>
         `;
 
         btnInfo.style.display = "none";
+    }
+});
+
+btnVoltar.addEventListener("click", () => {
+
+    tentativas++;
+
+    if (tentativas === 1) {
+
+        window.location.href = "../../informacao.html";
+
+    } else {
+
+        window.location.href = "../../informacao.html";
 
     }
+});
