@@ -1,7 +1,504 @@
-body{
-    min-height:100vh;
-    background-color: red;
-    color:white;
-    font-family:'Roboto Slab', serif;
-}
 
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #1a2e2e;
+    color: #ddd;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+
+  #tela-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  #intro-conteudo {
+    text-align: center;
+    padding: 2rem;
+    animation: introShake 0.6s ease-in-out 0.3s;
+  }
+  
+  @keyframes introShake {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-6px, 3px); }
+    40%  { transform: translate(6px, -3px); }
+    60%  { transform: translate(-4px, 5px); }
+    80%  { transform: translate(4px, -2px); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  #intro-aviso {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    color: #8b0000;
+    margin-bottom: 1.5rem;
+    animation: piscar 0.8s step-start infinite;
+  }
+  
+  #intro-titulo {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: #cc0000;
+    text-shadow: 0 0 30px #ff0000, 0 0 80px rgba(200,0,0,0.5);
+    margin-bottom: 1.8rem;
+    animation: pulsoVermelho 1.5s ease-in-out infinite;
+  }
+  
+  #intro-texto {
+    font-size: 1rem;
+    color: #bbb;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+  
+  #intro-instrucao {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: #444;
+    animation: piscar 2s step-start infinite;
+  }
+  
+  #tela-intro::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px
+    );
+  }
+  
+
+  #layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  #layout.visivel {
+    opacity: 1;
+  }
+  
+
+  #painel-esquerdo {
+    background-color: #111;
+    padding: 1.5rem 1.2rem;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  #scp-codigo {
+    color: red;
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  #painel-esquerdo p {
+    font-size: 0.88rem;
+    color: #ccc;
+    line-height: 1.5;
+  }
+  
+  #painel-esquerdo strong { color: red; }
+  
+  #painel-esquerdo hr {
+    border-color: #333;
+    margin: 0.6rem 0;
+  }
+  
+  #descricao-curta {
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  
+  #btnVoltar {
+    display: none;
+    margin-top: auto;
+    padding: 0.6rem 1rem;
+    background: #1a2a2a;
+    border: 1px solid red;
+    color: red;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  #btnVoltar:hover { background: #1e3a3a; }
+  
+  
+  #coluna-centro {
+    background-color: #111;
+    border-right: 1px solid #111;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #img-entidade {
+    width: 100%;
+    display: block;
+    max-height: 60vh;
+    object-fit: cover;
+    object-position: top;
+    filter: brightness(0.85) contrast(1.1);
+  }
+  
+  #card-entidade {
+    padding: 1.2rem 1.5rem;
+    background: #111;
+  }
+  
+  #card-entidade h3 {
+    color: red;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #card-entidade p {
+    font-size: 0.88rem;
+    color: #aaa;
+    line-height: 1.7;
+  }
+  
+  #card-entidade strong { color: #ddd; }
+  
+
+  #coluna-direita {
+    background-color: #111;
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+  }
+  
+  #titulo-principal {
+    color: red;
+    font-size: 1.5rem;
+  }
+  
+  #titulo-caso {
+    color: #c0392b;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+  
+  #card-caso {
+    background: #0d0d0d;
+    border: 1px solid #c0392b;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+  }
+  
+  #card-caso h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+  
+  #card-caso p {
+    font-size: 0.88rem;
+    color: #bbb;
+    line-height: 1.7;
+    text-align: center;
+  }
+  
+  #card-caso strong { color: #fff; }
+  
+  #btnDepoimento {
+    padding: 0.75rem 1.2rem;
+    background: #111;
+    border: 1px solid red;
+    color: red;
+    font-size: 1.1rem;
+    font-family: Georgia, serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  #btnDepoimento:hover { background: #1e3a3a; }
+  
+  #depoimentoElena {
+    display: none;
+    background: #0d0d0d;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+  }
+  
+  #depoimentoElena p {
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 2;
+  }
+  
+  #depoimentoElena strong { color: #fff; }
+  
+  #depoimento-rodape {
+    margin-top: 1rem;
+    font-size: 0.75rem !important;
+    color: #555 !important;
+    font-style: italic;
+    border-top: 1px solid #222;
+    padding-top: 0.8rem;
+  }
+  
+  #mensagemErro {
+    display: none;
+    background: #0d0d0d;
+    border: 1px dashed #c0392b;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  #mensagemErro h2 { color: #c0392b; margin-bottom: 0.5rem; }
+  #mensagemErro p  { color: #888; font-size: 0.9rem; line-height: 1.7; }
+  
+  /* ============================
+     TELA DE TERROR
+     ============================ */
+  #tela-terror {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    cursor: pointer;
+    animation: terrorEntrada 0.1s ease-out;
+  }
+  
+  @keyframes terrorEntrada {
+    from { opacity: 0; transform: scale(1.04); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  #terror-conteudo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 2rem;
+    animation: shake 0.4s ease-in-out 0.1s;
+  }
+  
+  #terror-aviso {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: #8b0000;
+    margin-bottom: 1.5rem;
+    animation: piscar 1s step-start infinite;
+  }
+  
+  #terror-titulo {
+    font-family: Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: #cc0000;
+    text-shadow: 0 0 20px #ff0000, 0 0 60px rgba(200,0,0,0.4);
+    margin-bottom: 2rem;
+    animation: pulsoVermelho 1.5s ease-in-out infinite;
+  }
+  
+  #terror-texto {
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 2;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #terror-detalhe {
+    color: #888;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  
+  #terror-instrucao {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: #444;
+    margin-top: 3rem;
+    animation: piscar 2s step-start infinite;
+  }
+  
+  #tela-terror::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px
+    );
+  }
+  
+ 
+  #tela-expulsao {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+  }
+  
+  #expulsao-conteudo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  #expulsao-codigo {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: #c0392b;
+    margin-bottom: 1.5rem;
+    animation: piscar 0.5s step-start infinite;
+  }
+  
+  #expulsao-titulo {
+    font-family: Georgia, serif;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    color: #cc0000;
+    text-shadow: 0 0 20px #ff0000;
+    margin-bottom: 1.5rem;
+    animation: glitchTexto 2s infinite;
+  }
+  
+  @keyframes glitchTexto {
+    0%, 90%, 100% { transform: translate(0); color: #cc0000; }
+    91%  { transform: translate(-4px, 2px); color: #ff4444; }
+    93%  { transform: translate(4px, -2px); color: #880000; }
+    95%  { transform: translate(-2px, 0); color: #ff0000; }
+  }
+  
+  #expulsao-glitch {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: #333;
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+    animation: glitchLinhas 1.5s step-start infinite;
+  }
+  
+  @keyframes glitchLinhas {
+    0%, 80%, 100% { opacity: 0.3; }
+    85% { opacity: 1; color: #c0392b; }
+    90% { opacity: 0.1; }
+  }
+  
+  #expulsao-texto {
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    color: #999;
+    line-height: 2;
+    margin-bottom: 2.5rem;
+  }
+  
+  #expulsao-texto strong { color: #fff; }
+  
+  /* Barra de progresso */
+  #expulsao-barra {
+    width: 100%;
+    height: 3px;
+    background: #1a0000;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  #expulsao-progresso {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #8b0000, #cc0000);
+    transition: width linear;
+  }
+  
+  #expulsao-rodape {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: #555;
+  }
+  
+  #tela-expulsao::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px
+    );
+  }
+  
+
+  @keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  
+  @keyframes pulsoVermelho {
+    0%, 100% { text-shadow: 0 0 20px #ff0000, 0 0 60px rgba(200,0,0,0.4); }
+    50%       { text-shadow: 0 0 40px #ff0000, 0 0 100px rgba(200,0,0,0.7); }
+  }
+  
+  @keyframes shake {
+    0%   { transform: translate(-50%, -50%); }
+    20%  { transform: translate(-52%, -49%); }
+    40%  { transform: translate(-48%, -51%); }
+    60%  { transform: translate(-51%, -48%); }
+    80%  { transform: translate(-49%, -52%); }
+    100% { transform: translate(-50%, -50%); }
+  }
+  
+
+  @media (max-width: 768px) {
+    body { overflow-y: auto; }
+  
+    #layout {
+      grid-template-columns: 1fr;
+    }
+  
+    #painel-esquerdo {
+      border-right: none;
+      border-bottom: 1px solid #333;
+    }
+  
+    #coluna-centro { border-right: none; }
+  }
