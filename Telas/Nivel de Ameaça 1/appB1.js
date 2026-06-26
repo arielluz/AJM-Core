@@ -1,47 +1,28 @@
-const btn = document.getElementById("btnDepoimento");
-const depoimento = document.getElementById("depoimentoElena");
+document.addEventListener("DOMContentLoaded", () => {
 
-btn.addEventListener("click", () => {
+    const btnVoltar = document.getElementById("btnVoltar");
+    const mensagemErro = document.getElementById("mensagemErro");
 
-    if (depoimento.style.display === "block") {
+    let tentativas = 0;
 
-        depoimento.style.display = "none";
-        btn.innerText = "Ver Depoimento";
+    btnVoltar.addEventListener("click", () => {
 
-    } else {
+        tentativas++;
 
-        depoimento.style.display = "block";
-        btn.innerText = "Fechar Depoimento";
+        if (tentativas === 1) {
 
-    }
+            mensagemErro.style.display = "block";
 
-});
+            setTimeout(() => {
+                mensagemErro.style.display = "none";
+            }, 3000);
 
-const btnVoltar = document.getElementById("btnVoltar");
+        } else {
 
-const mensagemErro = document.getElementById("mensagemErro");
+            window.location.href = "../informacao.html";
 
-let tentativas = 0;
+        }
 
-btnVoltar.addEventListener("click", () => {
-
-    tentativas++;
-
-    if(tentativas === 1){
-
-        mensagemErro.style.display = "block";
-
-        setTimeout(() => {
-
-        mensagemErro.style.display = "none";
-
-        }, 3000);
-    }
-
-    else{
-
-        window.location.href = "../../informacao.html";
-
-    }
+    });
 
 });
