@@ -1,18 +1,28 @@
-const btnVoltar = document.getElementById("btnVoltar");
-const mensagemErro = document.getElementById("mensagemErro");
+document.addEventListener("DOMContentLoaded", () => {
 
-let tentativas = 0;
+    const btnVoltar = document.getElementById("btnVoltar");
+    const mensagemErro = document.getElementById("mensagemErro");
 
-btnVoltar.addEventListener("click", () => {
+    let tentativas = 0;
 
-    tentativas++;
+    btnVoltar.addEventListener("click", () => {
 
-    if (tentativas === 1) {
-        mensagemErro.style.display = "block";
-        setTimeout(() => {
-            mensagemErro.style.display = "none";
-        }, 3000);
-    } else {
-      window.location.href = "../informacao.html";
-    }
+        tentativas++;
+
+        if (tentativas === 1) {
+
+            mensagemErro.style.display = "block";
+
+            setTimeout(() => {
+                mensagemErro.style.display = "none";
+            }, 3000);
+
+        } else {
+
+            window.location.href = "../informacao.html";
+
+        }
+
+    });
+
 });
