@@ -58,7 +58,9 @@ function escreverBloco() {
     digitar();
 }
 
-escreverBloco();
+document.getElementById("btn-iniciar").addEventListener("click", function () {
+    escreverBloco();
+});
 
 function revelarBotao() {
     const btn = document.getElementById("btn-avancar");
@@ -68,6 +70,6 @@ function revelarBotao() {
     btn.classList.add("visivel");
 
     btn.addEventListener("click", () => {
-        window.location.href = "informacao.html";
+        window.location.href = "../informacao/informacao.html";
     });
 }
