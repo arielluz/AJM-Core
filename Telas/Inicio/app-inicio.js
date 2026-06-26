@@ -70,6 +70,6 @@ function revelarBotao() {
     btn.classList.add("visivel");
 
     btn.addEventListener("click", () => {
-        window.location.href = "../informacao/informacao.html";
+        window.location.href = "../info/informacao.html";
     });
 }

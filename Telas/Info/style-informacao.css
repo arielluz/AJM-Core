@@ -1,0 +1,135 @@
+body{
+
+    margin:0;
+    background:#0a0f0f;
+    color:white;
+    font-family: monospace;
+    overflow:auto;
+}
+.scanlines{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.02) 3px
+    );
+    pointer-events:none;}
+.app {
+    display:flex;
+    height:100vh;}
+.sidebar{
+    width:280px;
+    background:#151f1f;
+    border-right:2px solid #202b2b;
+    padding:25px;}
+.brand h1{
+    color:#8B0000;
+}
+.brand p{
+    color:gray;
+}
+.tab{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    background:#1f2d2d;
+    color:white;
+    border:none;
+    border-radius:10px;
+    text-align:left;
+    transition:0.3s;
+}
+.tab:hover{
+    background:#2d4545;
+}
+.active{
+    border:1px solid #8B0000;
+}
+#criaturasMenu{
+    display:none;
+    flex-direction:column;
+    margin-top:10px;
+}
+#criaturasMenu a{
+    text-decoration:none;
+    color:#8B0000;
+    padding:10px;
+    margin-top:5px;
+    border-left:2px solid #8B0000;
+}
+#criaturasMenu a:hover{
+    background:#1f2d2d;
+}
+.content{
+    flex:1;
+    padding:50px;
+}
+#cardsCriaturas{
+    display:none;
+    gap:30px;
+    margin-top:50px;
+}
+.cardAmeaca{
+    width:250px;
+    height:180px;
+    background:#1f2d2d;
+    border:2px solid #2d4545;
+    border-radius:20px;
+    padding:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.cardAmeaca:hover{
+    transform:translateY(-10px);
+    border-color:#8B0000;
+    box-shadow:0 0 25px rgba(127,179,255,0.3);
+}
+.cardAmeaca h2{
+    color:#8B0000;
+}
+.cardAmeaca p{
+    color:white;
+}
+.status{
+    color:lime;
+    font-size:18px;
+}
+#titulo{
+    margin-top:40px;
+    font-size:60px;
+    color:#8B0000;
+}
+.terminal{
+    margin-top:50px;
+    width:700px;
+    background:black;
+    border:1px solid #8B0000;
+    padding:30px;
+    border-radius:20px;
+}
+.linha{
+    opacity:0;
+    margin-top:20px;
+    font-size:22px;
+}
+.vermelho{
+    color:red;
+}
+#criaturasMenu{
+    display:none;
+    margin-top:10px;
+}
+
+#criaturasMenu.ativo{
+    display:block;
+}
+.logo-ajm{
+    color:  #8B0000;
+
+}
+.logo-core{
+    color: #ffffff;
+
+}
