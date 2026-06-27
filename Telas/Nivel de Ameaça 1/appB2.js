@@ -6,7 +6,6 @@ const btnVoltar = document.querySelector("#btnVoltar");
 let etapa = 0;
 let tentativas = 0;
 
-// BOTÃO PRINCIPAL
 btnInfo.addEventListener("click", () => {
 
     etapa++;

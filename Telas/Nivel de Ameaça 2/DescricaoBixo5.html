@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<title>SCP-3199</title>
+<style>
+ 
+*{margin:0;padding:0;box-sizing:border-box;}
+ 
+:root{
+  --bg:#0a0a0f;
+  --panel:#111118;
+  --borda:#2a2a3a;
+  --acento:#5c4fff;
+  --acento-escuro:#2e2080;
+  --texto:#c0bdd8;
+  --texto-forte:#e8e6f5;
+  --texto-fraco:#6b6880;
+}
+ 
+body{
+  background:var(--bg);
+  color:var(--texto);
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+  height:100vh;
+}
+
+.esq{
+  position:fixed;left:0;top:0;
+  width:50%;height:100vh;
+  display:flex;flex-direction:column;
+  border-right:1px solid var(--borda);
+}
+ 
+.esq img{
+  width:100%;
+  height:65%;
+  object-fit:cover;
+  object-position:center;
+  filter:grayscale(30%) brightness(.8);
+}
+ 
+.ficha{
+    font-family:'Roboto Condensed', sans-serif;
+  flex:1;
+  background:var(--panel);
+  padding:24px 28px;
+  border-top:1px solid var(--borda);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+ 
+.ficha h2{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size:22px;
+  color:var(--texto-forte);
+  letter-spacing:1px;
+}
+ 
+.linha{
+    font-family:'Roboto Condensed', sans-serif;
+  display:flex;
+  gap:8px;
+  font-size:14px;
+}
+ 
+.linha span:first-child{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  color:var(--texto-fraco);
+
+}
+ 
+.linha span:last-child{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  color:var(--texto-forte);
+}
+ 
+.classe-badge{
+    font-family:'Roboto Condensed', sans-serif;
+  background:var(--acento-escuro);
+  color:#b8b0ff;
+  font-size:12px;
+  padding:2px 10px;
+  border:1px solid var(--acento);
+}
+ 
+.dir{
+    font-family:'Roboto Condensed', sans-serif;
+  position:fixed;right:0;top:0;
+  width:50%;height:100vh;
+  padding:44px 44px 30px;
+  display:flex;
+  flex-direction:column;
+}
+ 
+.dir h1{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size:52px;
+  color:var(--texto-forte);
+  letter-spacing:2px;
+  margin-bottom:4px;
+}
+ 
+.dir h3{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size:14px;
+  color:var(--acento);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+ 
+hr{
+    font-family:'Roboto Condensed', sans-serif;
+  border:none;
+  border-top:1px solid var(--borda);
+  margin-bottom:24px;
+}
+ 
+.caixa{
+    font-family:'Roboto Condensed', sans-serif;
+  background:var(--panel);
+  border:1px solid var(--borda);
+  border-left:3px solid var(--acento);
+  padding:20px 22px;
+  font-size:15px;
+  line-height:1.85;
+  color:var(--texto);
+  margin-bottom:22px;
+}
+ 
+.caixa strong{
+    font-family:'Roboto Condensed', sans-serif;
+  color:var(--texto-forte);
+}
+ 
+#btnLer{
+    font-family:'Roboto Condensed', sans-serif;
+  width:100%;
+  padding:16px;
+  background:var(--panel);
+  border:1px solid var(--borda);
+  border-radius: 6px;
+  color:var(--texto-forte);
+  font-size:16px;
+  cursor:pointer;
+  transition:.2s;
+  text-align:left;
+}
+ 
+#btnLer:hover{
+    font-family:'Roboto Condensed', sans-serif;
+  border-color:var(--acento);
+  color:#b8b0ff;
+}
+ 
+#relato{
+    font-family:'Roboto Condensed', sans-serif;
+  display:none;
+  margin-top:18px;
+  padding:20px 22px;
+  background:var(--panel);
+  border:1px solid var(--borda);
+  border-radius: 7px;
+  font-size:16px;
+  line-height:1.85;
+  color:var(--texto);
+}
+ 
+#btnVoltar{
+    font-family:'Roboto Condensed', sans-serif;
+  border-radius: 10px;
+  position:fixed;left:24px;bottom:24px;
+  padding:9px 20px;
+  background:var(--panel);
+  border:1px solid var(--borda);
+  color:var(--texto);
+  font-size:25px;
+  cursor:pointer;
+  transition:.2s;
+}
+ 
+#btnVoltar:hover{
+    font-family:'Roboto Condensed', sans-serif;
+  border-color:var(--acento);
+  color:#b8b0ff;
+}
+ 
+#alerta{
+    font-family:'Roboto Condensed', sans-serif;
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.97);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+ 
+#alerta.ativo{
+    font-family:'Roboto Condensed', sans-serif;
+  display:flex;
+}
+ 
+#alerta h1{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size:72px;
+  color:#5c4fff;
+  letter-spacing:6px;
+  margin-bottom:16px;
+}
+ 
+#alerta p{
+    font-family:'Roboto Condensed', sans-serif;
+  font-size:18px;
+  color:var(--texto);
+  letter-spacing:1px;
+  line-height:1.8;
+}
+ 
+</style>
+</head>
+<body>
+ 
+<div class="esq">
+  <img src="../IMAGENS/scp3199.jpg" alt="SCP-3199">
+  <div class="ficha">
+    <h2>SCP-3199</h2>
+    <div class="linha">
+      <span>Classe:</span>
+      <span>Keter</span>
+    </div>
+    <div class="linha">
+      <span>Status:</span>
+      <span>Não Identificado</span>
+    </div>
+    <div class="linha">
+      <span>Nível de ameaça:</span>
+      <span>2</span>
+    </div>
+  </div>
+</div>
+ 
+<div class="dir">
+  <h1>SCP-3199</h1>
+  <h3>Relatório de Contenção</h3>
+  <hr>
+ 
+  <div class="caixa">
+    SCP-3199 é uma espécie de criaturas bípedes com aparência parcialmente humana,
+    cobertas por uma substância orgânica branca e viscosa.
+    <br><br>
+    São <strong>completamente imortais</strong>, qualquer dano causado resulta na
+    postura de um ovo, do qual uma nova instância emerge em minutos.
+    Quanto mais dano, <strong>mais ovos são postos</strong>.
+    Não há forma conhecida de eliminar permanentemente a espécie.
+  </div>
+ 
+  <button id="btnLer">Ler Registro de Incidente</button>
+ 
+  <div id="relato">
+    <strong style="color:var(--acento);"> Registro SCP-3199 — Agente Cruz</strong><br><br>
+    "Tentamos contê-los com força letal. Cada tiro resultava em mais ovos.
+    Em doze minutos, o corredor estava tomado.
+    Não havia saída.
+    A última câmera registrou 34 instâncias antes de ser destruída.
+    Ninguém do time voltou."
+  </div>
+</div>
+ 
+<button id="btnVoltar">
+    <a href="../informacao.html">Voltar</a>
+</button>
+ 
+<div id="alerta">
+  <h1>QUEBRA DE CONTENÇÃO</h1>
+  <p>SCP-3199 detectado fora da câmara.<br>Protocolo de lockdown iniciado.</p>
+</div>
+
+<script src="appB5.js"></script>
+ 
+</body>
+</html>
+ 
