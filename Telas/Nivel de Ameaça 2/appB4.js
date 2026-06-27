@@ -47,7 +47,7 @@ erro.style.display="none";
         },3000);
 } else{
 
-    window.location.href="../../informacao.html";
+    window.location.href="../info/informacao.html";
 
 }
 

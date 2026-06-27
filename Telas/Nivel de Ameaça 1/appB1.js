@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } else {
 
-            window.location.href = "../informacao.html";
+            window.location.href = "../info/informacao.html";
 
         }
 

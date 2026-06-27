@@ -48,7 +48,7 @@ btnInfo.addEventListener("click", () => {
         bugTela.style.display = "block";
 
         bugTela.innerHTML = `
-            <img src="Manequim.png" alt="Manequim">
+            <img src="../IMAGENS/Manequim.png" alt="Manequim">
         `;
 
         setTimeout(() => {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                mensagemErro.style.display = "none";
             }, 3000);
         } else {
-            window.location.href = "../informacao.html";
+            window.location.href = "../info/informacao.html";
         }
     });
 });

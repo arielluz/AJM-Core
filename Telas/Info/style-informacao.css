@@ -18,12 +18,17 @@ body{
     pointer-events:none;}
 .app {
     display:flex;
-    height:100vh;}
+    min-height: 100vh; }
 .sidebar{
     width:280px;
     background:#151f1f;
     border-right:2px solid #202b2b;
-    padding:25px;}
+    padding:25px;
+
+    overflow-y:auto;
+    height:100vh;
+}
+    
 .brand h1{
     color:#8B0000;
 }
@@ -132,4 +137,128 @@ body{
 .logo-core{
     color: #ffffff;
 
+}
+
+
+
+body{
+    background:#0d1117;
+    font-family:'Consolas', monospace;
+}
+
+.container-entidades{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    max-width:500px;
+}
+
+.scp-card{
+
+    background:#161b22;
+
+    border:2px solid #30363d;
+
+    border-left:6px solid green;
+
+    border-radius:10px;
+
+    padding:18px;
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:.35s;
+}
+
+.scp-card:hover{
+
+    transform:translateX(10px);
+
+    border-left:6px solid green;
+
+    box-shadow:0 0 20px green;
+
+    background:#1d2430;
+}
+
+.titulo{
+
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.scp-card p{
+
+    color:#9ba3af;
+
+    margin-bottom:20px;
+}
+
+.rodape{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#c9d1d9;
+
+    font-size:14px;
+}
+
+.classe{
+    display: inline-block;
+    padding:5px 12px;
+    height: 24px;
+    line-height: 14px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+}
+.raro{
+    background: red;
+}
+
+.keter{
+    background: green;
+}
+
+.safe{
+    background:#006400;
+}
+
+.apollyon{
+    background:#196398;
+}
+
+.suprema{
+
+    border-left:6px solid #196398;
+}
+.Rarissimo{
+    border-left:6px solid red ;
+}
+
+
+.suprema:hover{
+
+    box-shadow:0 0 25px #196398;
+
+    border-left:6px solid #196398;
+}
+
+.Rarissimo:hover{
+
+    box-shadow:0 0 25px red;
+    border-left: 6px solid red;
+
+  
 }
