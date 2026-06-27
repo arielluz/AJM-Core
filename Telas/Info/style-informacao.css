@@ -243,6 +243,12 @@ body{
     font-size:14px;
 }
 
+.rodape .risco-extremo {
+    color: #ff2d2d;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 45, 45, 0.5);
+}
+
 .classe{
     display: inline-block;
     padding:5px 12px;
